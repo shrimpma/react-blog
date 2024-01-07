@@ -1,12 +1,10 @@
+
 import { useState,useEffect } from "react";
 import BlogList from "./BlogList";
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { id: 1, title: "blog 1", author: "author 1" },
-    { id: 2, title: "blog 2", author: "author 2" },
-    { id: 3, title: "blog 3", author: "author 3" },
-    { id: 4, title: "blog 4", author: "Max" },
-  ]);
+  const [blogs, setBlogs] = useState(null );
+
+  const [isPending, setIsPending] = useState(true );
 
 
   function handleDelete(id) {
@@ -21,6 +19,16 @@ const Home = () => {
   }
   useEffect(()=>{
     console.log('use effect run ');
+
+    setTimeout(() => {
+        fetch("http://localhost:8080/blogs").then(res=>{
+        return res.json()
+    }).then(data=>{
+        setBlogs(data);
+        setIsPending(false);
+    })
+    }, 3000);
+    
     
 
 
@@ -29,7 +37,9 @@ const Home = () => {
   return (
     <div className="home">
       <h1> home page </h1>
-      <BlogList blogs={blogs} title={"blog list "} handleDelete={handleDelete }  ></BlogList>
+
+       { isPending && <div> loading  </div>}
+       { blogs && <BlogList blogs={blogs} title={"blog list "} handleDelete={handleDelete }  ></BlogList>}
 
       <button onClick={()=>changeName('Max')}> change name ({name })</button>
       {/* <BlogList
