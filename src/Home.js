@@ -1,47 +1,40 @@
-
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
+
+import useFetch from './useFetch';
 const Home = () => {
-  const [blogs, setBlogs] = useState(null );
-
-  const [isPending, setIsPending] = useState(true );
-
+  
+   const {blogs , isPending,error, setBlogs } = useFetch();
 
   function handleDelete(id) {
-    const newBlogs = blogs.filter((blog )=> blog.id !== id );
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
   }
 
-  const [name,setName] = useState('Lida');
+  const [name, setName] = useState("Lida");
 
-  function changeName(name ){
-    setName(name );
+  function changeName(name) {
+    setName(name);
   }
-  useEffect(()=>{
-    console.log('use effect run ');
 
-    setTimeout(() => {
-        fetch("http://localhost:8080/blogs").then(res=>{
-        return res.json()
-    }).then(data=>{
-        setBlogs(data);
-        setIsPending(false);
-    })
-    }, 3000);
-    
-    
-
-
-  },[name ])
+  useFetch();
+  
 
   return (
     <div className="home">
       <h1> home page </h1>
 
-       { isPending && <div> loading  </div>}
-       { blogs && <BlogList blogs={blogs} title={"blog list "} handleDelete={handleDelete }  ></BlogList>}
+      {isPending && <div> loading </div>}
+      {blogs && (
+        <BlogList
+          blogs={blogs}
+          title={"blog list "}
+          handleDelete={handleDelete}
+        ></BlogList>
+      )}
 
-      <button onClick={()=>changeName('Max')}> change name ({name })</button>
+      {/* onClick={()=>changeName('Max')} */}
+      <button> change name ({name})</button>
       {/* <BlogList
         blogs={blogs.filter((blog) => blog.author == "Max")}
         title={"max blog list new  "}

@@ -73,3 +73,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # user  josn server 
 
 npx json-server --watch data/blogs.json  --port 8080
+
+
+npm install react-router-dom@5
+
+
+
+# temp 
+
+P24

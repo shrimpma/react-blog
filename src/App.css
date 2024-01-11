@@ -8,7 +8,21 @@
   height: 40vmin;
   pointer-events: none;
 }
+.main-menu {
+  background-color: #e9ecef;
+  display: flex ;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.blog-title {
+  color: #74c0fc;
+}
 
+.menu a{
+  padding: 0 15px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
