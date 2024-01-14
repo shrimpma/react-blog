@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/create">
                 <Create></Create>
             </Route>
+            
             <Route path="*">
               <NotFound></NotFound>
             </Route>
