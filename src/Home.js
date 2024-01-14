@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BlogList from "./BlogList";
 
 import useFetch from './useFetch';
+
 const Home = () => {
   
-   const {blogs , isPending,error, setBlogs } = useFetch();
+   const {blogs,isPending,error,setBlogs } = useFetch("http://localhost:8080/blogs");
 
   function handleDelete(id) {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
+   
   }
 
   const [name, setName] = useState("Lida");

@@ -1,14 +1,16 @@
 {
-    "blogs": [
-        {
-            "title": "the blog title 1",
-            "author": "author1 ",
-            "id": 1
-        },
-        {
-            "title": "the blog title 2 ",
-            "author": "author1 ",
-            "id": 2
-        }
-    ]
+  "blogs": [
+    {
+      "title": "the blog title 1",
+      "body": "the blog1 body ",
+      "author": "Jonh ",
+      "id": 1
+    },
+    {
+      "title": "tk info",
+      "body": "tk info here ",
+      "author": "Jon ",
+      "id": 3
+    }
+  ]
 }

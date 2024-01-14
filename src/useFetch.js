@@ -1,7 +1,6 @@
 import {useState,useEffect} from 'react';
 
-const useFetch = ()=>{
-
+const useFetch = (url )=>{
 
     const [blogs, setBlogs] = useState(null);
 
@@ -13,7 +12,7 @@ const useFetch = ()=>{
         const abortCont = new AbortController();
     
         setTimeout(() => {
-          fetch("http://localhost:8080/blogs")
+          fetch(url )
             .then((res) => {
                 if(!res.ok ){
                         throw Error("could not fetch data from resource ");

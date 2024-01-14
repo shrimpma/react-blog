@@ -5,6 +5,8 @@ import About  from './About';
 
 import BlogDetail from './BlogDetail';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import Create from './Create';
+import NotFound from './Notfound';
 
 function App() {
   return (
@@ -16,13 +18,20 @@ function App() {
             <Route exact  path="/">
                 <Home/> 
             </Route>
-            <Route  path="/about">
+            <Route exact path="/about">
                 <About></About>
             </Route>
            
-            <Route  path="/blogs/:id">
+            <Route exact path="/blogs/:id">
                 <BlogDetail/>
             </Route>
+            <Route exact path="/create">
+                <Create></Create>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+
         </Switch>
         
       </div>
